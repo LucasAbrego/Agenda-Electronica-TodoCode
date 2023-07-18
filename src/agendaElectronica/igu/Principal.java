@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class Principal extends JFrame {
 	private JTextField txtDNI;
@@ -38,12 +41,15 @@ public class Principal extends JFrame {
 	
 	
 	public Principal() {
+		setBackground(new Color(252, 252, 252));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/agendaElectronica/igu/cuaderno32.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(800, 500);
+		setSize(800, 480);
 		setLocationRelativeTo(null);
 		JPanel contentPane = new JPanel();
+		contentPane.setBackground(new Color(252, 252, 252));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		setTitle("Agenda Electrónica - TodoCode");
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -125,7 +131,10 @@ public class Principal extends JFrame {
 		txtFNac.setBounds(519, 260, 220, 30);
 		contentPane.add(txtFNac);
 		
-		JButton btnAnterior = new JButton("<<");
+		JButton btnAnterior = new JButton("");
+		btnAnterior.setBackground(new Color(252, 252, 252));
+		btnAnterior.setBorder(null);
+		btnAnterior.setIcon(new ImageIcon(Principal.class.getResource("/agendaElectronica/igu/anterior.png")));
 		btnAnterior.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int indice = Integer.parseInt(txtIndice.getText());
@@ -138,10 +147,13 @@ public class Principal extends JFrame {
 		});
 		btnAnterior.setFont(new Font("Roboto Medium", Font.PLAIN, 25));
 		btnAnterior.setActionCommand("");
-		btnAnterior.setBounds(260, 340, 60, 40);
+		btnAnterior.setBounds(295, 340, 32, 32);
 		contentPane.add(btnAnterior);
 		
-		JButton btnGuardar = new JButton("Guardar");
+		JButton btnGuardar = new JButton("");
+		btnGuardar.setBackground(new Color(252, 252, 252));
+		btnGuardar.setBorder(null);
+		btnGuardar.setIcon(new ImageIcon(Principal.class.getResource("/agendaElectronica/igu/guardar.png")));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int indice = Integer.parseInt(txtIndice.getText());
@@ -149,10 +161,13 @@ public class Principal extends JFrame {
 			}
 		});
 		btnGuardar.setFont(new Font("Roboto Medium", Font.PLAIN, 25));
-		btnGuardar.setBounds(335, 340, 130, 40);
+		btnGuardar.setBounds(405, 340, 64, 64);
 		contentPane.add(btnGuardar);
 		
-		JButton btnSiguiente = new JButton(">>");
+		JButton btnSiguiente = new JButton("");
+		btnSiguiente.setBackground(new Color(252, 252, 252));
+		btnSiguiente.setBorder(null);
+		btnSiguiente.setIcon(new ImageIcon(Principal.class.getResource("/agendaElectronica/igu/proximo.png")));
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int indice = Integer.parseInt(txtIndice.getText());
@@ -164,21 +179,24 @@ public class Principal extends JFrame {
 			}
 		});
 		btnSiguiente.setFont(new Font("Roboto Medium", Font.PLAIN, 25));
-		btnSiguiente.setBounds(480, 340, 60, 40);
+		btnSiguiente.setBounds(342, 340, 32, 32);
 		contentPane.add(btnSiguiente);
 		
-		JLabel lbIndice = new JLabel("Índice:");
+		JLabel lbIndice = new JLabel("Índice");
+		lbIndice.setBackground(new Color(252, 252, 252));
 		lbIndice.setHorizontalAlignment(SwingConstants.CENTER);
-		lbIndice.setFont(new Font("Roboto", Font.PLAIN, 25));
-		lbIndice.setBounds(285, 400, 80, 30);
+		lbIndice.setFont(new Font("Roboto", Font.PLAIN, 23));
+		lbIndice.setBounds(282, 378, 80, 30);
 		contentPane.add(lbIndice);
 		
 		txtIndice = new JTextField();
+		txtIndice.setBackground(new Color(252, 252, 252));
+		txtIndice.setBorder(null);
 		txtIndice.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIndice.setText("0");
 		txtIndice.setEditable(false);
-		txtIndice.setFont(new Font("Roboto", Font.PLAIN, 30));
-		txtIndice.setBounds(375, 400, 50, 30);
+		txtIndice.setFont(new Font("Roboto", Font.PLAIN, 28));
+		txtIndice.setBounds(358, 378, 30, 28);
 		contentPane.add(txtIndice);
 		txtIndice.setColumns(10);
 		
